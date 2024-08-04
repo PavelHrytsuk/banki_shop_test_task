@@ -1,0 +1,39 @@
+.parameter-block {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.parameter-block-available-list {
+    margin-top: 25px;
+}
+
+#search-text-field {
+    border: 2px solid gold;
+}
+
+#search-text-field:focus, #search-text-field:focus{
+    outline: none;
+}
+
+.available-parameters-table {
+    border-collapse: separate;
+    border-spacing: 1.5em;
+}
+
+.parameter-image {
+    width: 350px;
+    height: auto;
+}
+
+.parameter-image-manipulation-block {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.parameter-image-manipulation-block-change {
+    display: flex;
+    flex-direction: column;
+}
