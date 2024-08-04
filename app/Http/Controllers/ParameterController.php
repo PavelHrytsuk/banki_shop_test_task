@@ -32,7 +32,7 @@ class ParameterController extends Controller
         $response = response()->json(['error' => 'Image upload failed.']);
         try {
             $request->validate([
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust max file size as needed
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
 
             if ($request->hasFile('image')) {
