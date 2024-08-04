@@ -29,7 +29,7 @@ class ParameterController extends Controller
 
     public function uploadParameterImg(Request $request): JsonResponse
     {
-        $response = response()->json(['error' => 'Image upload failed.']);
+        $status = false;
         try {
             $request->validate([
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -46,18 +46,18 @@ class ParameterController extends Controller
                 $parameterImage->url = $imageUrl;
                 $parameterImage->parameter_id = $parameterId;
                 $parameterImage->save();
-                $response = response()->json(['success' => true]);
+                $status = true;
             }
         } catch (Throwable $exception) {
             Log::error($exception->getMessage());
         }
 
-        return $response;
+        return response()->json(['success' => $status]);
     }
 
     public function updateParameterImg(Request $request): JsonResponse
     {
-        $response = response()->json(['error' => 'Image upload failed.']);
+        $status = false;
         try {
             $request->validate([
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -73,13 +73,13 @@ class ParameterController extends Controller
                 $parameterImage->name = $imageName;
                 $parameterImage->url = $imageUrl;
                 $parameterImage->save();
-                $response = response()->json(['url' => $imageUrl]);
+                $status = true;
             }
         } catch (Throwable $exception) {
             Log::error($exception->getMessage());
         }
 
-        return $response;
+        return response()->json(['success' => $status]);
     }
 
     public function deleteParameterImg(Request $request): JsonResponse

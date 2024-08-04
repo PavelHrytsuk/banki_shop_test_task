@@ -69,10 +69,15 @@ $(document).ready(function(){
             contentType: false,
             processData: false,
             success: function(response) {
-                if(imageInputSelector !== '') {
-                    $(imageInputSelector).val('');
+                console.log(response)
+                let alertMessage = 'Something went wrong.'
+                if (response.success) {
+                    if(imageInputSelector !== '') {
+                        $(imageInputSelector).val('');
+                    }
+                    alertMessage = 'Action was successful';
                 }
-                alert('Action was successful');
+                alert(alertMessage);
                 window.location.reload();
             },
             error: function(xhr, status, error) {
